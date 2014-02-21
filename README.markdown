@@ -13,7 +13,7 @@ See `.twmn` for more information.
 
 About .twmn
 ---------------
-<pre>
+```ini
 [gui]
 ; Screen number to display notifications on when using a multi-head desktop.
 screen=  ; 0 indexed screen number
@@ -101,7 +101,7 @@ activate=Return
 ; Hides all notifications. To hide the current notification, use the "next" key
 ; instead. Mouse right click has the same effect.
 hide=X
-</pre>
+```
 
 
 Installation
