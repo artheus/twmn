@@ -11,12 +11,17 @@
 class Settings
 {
 public:
-    Settings(QString file = QApplication::applicationName());
+    Settings(QString file = QString(""));
 
     /*!
       * \brief Sauvegarde les réglages
       */
-     ~Settings();
+    ~Settings();
+
+    /*!
+      * \brief Set default values.
+      */
+    void                setDefaults();
 
     /*!
       * \brief Recharge les paramètres à partir du fichier.
@@ -31,7 +36,7 @@ public:
     /*!
       * \brief Récupère le paramètre setting
       */
-    QVariant		    get(QString setting);
+    QVariant            get(QString setting);
 
     /*!
       * \return True si le paramètre setting existe.

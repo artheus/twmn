@@ -2,7 +2,19 @@
 #include <iostream>
 #include <QKeySequence>
 
-Settings::Settings(QString file) : m_file(file)
+Settings::Settings(QString file)
+{
+    m_file = QString(std::getenv("HOME")) + QString("/.twmn");
+
+    if (!file.isEmpty()) {
+        m_file += QString("_") + file;
+    }
+
+    setDefaults();
+    reload();
+}
+
+void Settings::setDefaults()
 {
     m_defaultSettings["main/port"] = 9797;
     m_defaultSettings["main/sound_command"] = "";
@@ -31,7 +43,6 @@ Settings::Settings(QString file) : m_file(file)
     m_defaultSettings["shortcuts/next"] = QKeySequence("J");
     m_defaultSettings["shortcuts/activate"] = QKeySequence("Return");
     m_defaultSettings["shortcuts/hide"] = QKeySequence("X");
-    reload();
 }
 
 Settings::~Settings()
@@ -41,7 +52,7 @@ Settings::~Settings()
 
 void Settings::reload()
 {
-    QSettings settings(QSettings::NativeFormat, QSettings::UserScope, "twmn", m_file);
+    QSettings settings(m_file, QSettings::IniFormat);
     settings.setIniCodec("UTF-8");
     QStringList keys = settings.allKeys();
     m_data.clear();
@@ -76,7 +87,7 @@ bool Settings::has(QString setting)
 
 void Settings::save()
 {
-    QSettings settings(QSettings::NativeFormat, QSettings::UserScope, "twmn", m_file);
+    QSettings settings(m_file, QSettings::IniFormat);
     settings.setIniCodec("UTF-8");
     settings.clear();
     for (QMap<QString, QVariant>::const_iterator it = m_data.begin(); it != m_data.end(); ++it) {

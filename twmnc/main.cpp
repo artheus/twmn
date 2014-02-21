@@ -21,11 +21,8 @@ const int           DEFAULT_PORT = 9797;
   */
 bool read_port(int& port)
 {
-    const char* xdgDir = getenv("XDG_CONFIG_HOME");
-    if (!xdgDir)
-        return false;
-    std::string path = xdgDir ;
-    path += "/twmn/twmn.conf";
+    std::string path = getenv("HOME") ;
+    path += "/.twmn";
     std::ifstream in(path.c_str());
     if (!in)
         return false;
