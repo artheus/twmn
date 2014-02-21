@@ -109,6 +109,8 @@ Installation
 
 For [Arch Linux](http://www.archlinux.org/) users, `twmn` is [on the AUR](https://aur.archlinux.org/packages.php?ID=51596).
 
+For [Debian](https://www.debian.org/) or [Ubuntu](http://www.ubuntu.com/) you can (for now) build the package using your preferred build-tool (eg. `dpkg-buildpackage`) for building as a debian package. Install using `dpkg -i`
+
 Otherwise you can install `twmnd` and `twmnc` manually:
 
 1. install `boost`, `qt` and `dbus` if they weren't before

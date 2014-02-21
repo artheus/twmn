@@ -1,4 +1,9 @@
 Makefile
 bin/
+builddir/
+build-stamp
 *.o
 moc_*
+debian/twmn
+debian/files
+debian/twmn.*

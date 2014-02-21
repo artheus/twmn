@@ -1,0 +1,16 @@
+Source: twmn
+Section: main/debian
+Priority: extra
+Maintainer: Morten Hekkvang <morten.hekkvang@gmail.com>
+Build-Depends:
+  debhelper (>= 8),
+  libboost-all-dev,
+  libdbus-1-dev,
+  qt4-dev-tools,
+Standards-Version: 3.9.3
+
+Package: twmn
+Architecture: any
+Depends:
+  dbus
+Description: A notification system for tiling window managers
